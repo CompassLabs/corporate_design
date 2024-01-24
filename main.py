@@ -13,40 +13,6 @@ def print_hi(name):
     # Use a breakpoint in the code line below to debug your script.
     print(f'Hi, {name}')  # Press ⌘F8 to toggle the breakpoint.
 
-
-
-
-# def filled_gradient_circle(svg, cx, cy, r):
-    # d = Defs()
-    #
-    # lg = LinearGradient()
-    # lg.set_id("compass_gradient")
-    # s = Stop(offset="0%")
-    # s.set_stop_color('#FFD75F')
-    # s.set_stop_opacity(1)
-    # lg.addElement(s)
-    #
-    # s = Stop(offset="50%")
-    # s.set_stop_color('#FF67C3')
-    # s.set_stop_opacity(1)
-    # lg.addElement(s)
-    #
-    # s = Stop(offset="100%")
-    # s.set_stop_color('#6BD6E3')
-    # s.set_stop_opacity(1)
-    # lg.addElement(s)
-    # d.addElement(lg)
-    #
-    # oh = ShapeBuilder()
-    # # oh.createCircle()
-    # e = oh.createCircle(cx=cx, cy=cy, r=r, fill="url(#compass_gradient)", stroke=None)
-    #
-    # svg.addElement(d)
-    # svg.addElement(e)
-
-
-
-
 def create_compass_gradient(dwg, dir="horizontal"):
     gradient = dwg.linearGradient((0, 0), (1, 0), id="my_gradient")
     gradient.add_stop_color(offset=0, color='#FFD75F')
@@ -58,7 +24,7 @@ def create_compass_gradient(dwg, dir="horizontal"):
 
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
-    dwg = svgwrite.Drawing('output.svg')
+    dwg = svgwrite.Drawing('CompassLogo.svg', size=(1000,1000))
 
     gradient = create_compass_gradient(dwg)
     dwg.add(gradient)
@@ -100,7 +66,6 @@ if __name__ == '__main__':
     points2 = [
         (points1[0][0], points1[0][1]+deltay),  # Top point
         (points1[1][0]-deltax, points1[1][1]),    # Right point
-        # (points1[2][0], points1[2][1]-deltay),   # Bottom point
         (points1[3][0]+deltax, points1[3][1]),    # Left point
     ]
     polygon2=dwg.polygon(points2, fill='yellow')
