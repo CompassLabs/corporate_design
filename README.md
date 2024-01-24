@@ -17,7 +17,8 @@ This repo holds all artifacts related to Compass corporate design
 
 ## Contents
 ### [main.py](main.py)
-Used to create out main logo. At the moment, clip paths don't really work with svgwrite, so one needs to open the file in an SVG editor, like Inkscape, and do it manually.
+Used to create out main logo. At the moment, clip paths don't really work with svgwrite, so one needs to open the file in an SVG editor, like Inkscape, and do it manually.  
+I use [Linearity Curve](https://apps.apple.com/us/app/linearity-curve-graphic-design/id1219074514) from the Mac App Store to quicky subtract the shapes.
 
 ## Outputs
 <img src="./CompassLogo.svg" width="200">
