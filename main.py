@@ -22,6 +22,16 @@ def create_compass_gradient(dwg, dir="horizontal"):
     return gradient
 
 
+def create_circles(circle_center, circle_radius, stroke_width):
+    # Circles
+    outer_circle = dwg.circle(
+        center=circle_center, r=circle_radius, fill=gradient.get_paint_server()
+    )
+    inner_circle = dwg.circle(
+        center=circle_center, r=circle_radius - stroke_width, fill="red"
+    )
+    return outer_circle, inner_circle
+
 def create_compass_needle(
     center, length, width_ratio=6 / 16, stroke_width=50, angle=45
 ):
@@ -85,13 +95,8 @@ if __name__ == "__main__":
     needle_width_ration = 4.5 / 12
     needle_angle = 45
 
-    # Circles
-    outer_circle = dwg.circle(
-        center=circle_center, r=circle_radius, fill=gradient.get_paint_server()
-    )
-    inner_circle = dwg.circle(
-        center=circle_center, r=circle_radius - stroke_width, fill="red"
-    )
+
+    outer_circle, inner_circle = create_circles(circle_center, circle_radius, stroke_width)
     dwg.add(outer_circle)
     dwg.add(inner_circle)
 
